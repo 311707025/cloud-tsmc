@@ -6,6 +6,7 @@ from .data import Company
 import time
 from datetime import datetime
 
+@login_required(login_url='signin')
 def home(request):
 	number = request.POST.get('number')
 

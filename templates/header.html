@@ -1,0 +1,71 @@
+<!-- header.html -->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <li class="nav-item">
+      <form class="search-bar">
+
+        <input type="text" class="form-control" placeholder="輸入文件編號..." name="number">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+
+
+<!--     <div align="center">
+      <h5></h5>
+      <h5>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+      </h5>
+    </div> -->
+  </ul>
+
+  <nav class="nav_log">
+    {% if user.is_authenticated %}
+    <span>Hi, </span>
+    <span>{{request.user}}&nbsp;&nbsp;</span>
+    <small style="color: #ffffff;">上次登入:{{user.last_login}}</small>
+    {% else %}
+    <a class="cta" href="{% url 'signin'%}"><button>登入</button></a>
+    <a class="cta" href="{% url 'signup' %}"><button>註冊</button></a>
+    {% endif %}
+  </nav>
+
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t1.15752-9/341263664_750028126608970_4106314443537861579_n.png?stp=cp0_dst-png&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=5AGDNZAOphEAX96Zqf7&_nc_ht=scontent-tpe1-1.xx&oh=03_AdQ6kQPtntoJyMoCpEtEMlr5iIhsgAP5bJSuC6qh9zOxzg&oe=6469A14E" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">{{request.user}}</h6>
+            <p class="user-subtitle">{{user.email}}</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i><a href="{% url 'mail' %}">Contact us</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<!--End header-->

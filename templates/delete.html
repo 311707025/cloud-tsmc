@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 台積電文件管理系統 {% endblock %}
+{% block headmessage %}
+{% endblock %}
+{% block content %}
+
+<div align="center">
+    <!-- <input type="text" class="form-control" placeholder="輸入文件編號..." name="number"> -->
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"><font color="white" size="5">文件編號</font></th>
+                                <th scope="col"><font color="white" size="5">文件名稱</font></th>
+                                <th scope="col"><font color="white" size="5">文件分類</font></th>
+                                <th scope="col"><font color="white" size="5">發布來源</font></th>
+                                <th scope="col"><font color="white" size="5">發布日期</font></th>
+                                <th scope="col"><font color="white" size="5">上次更新時間</font></th> 
+                            </tr> 
+                        </thead>
+                        {% for info in infos %}
+                        <tbody>
+                            <tr>
+                                <td scope="row"><font color="white" size="4">{{ info.num }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.name }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.classifier }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.source }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.ddate }}</font></td>
+                                <td scope="row"><font color="white" size="4">{{ info.update }}</font></td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
